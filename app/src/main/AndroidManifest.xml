@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".period" />
+        <activity android:name=".PeriodActivity" />
         <activity android:name=".SukhothaiKingActivity"></activity>
     </application>
 

@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeToPeriodPage(view: View){
-        val intent = Intent(this,period::class.java)
+        val intent = Intent(this,PeriodActivity::class.java)
         startActivity(intent)
     }
 }
