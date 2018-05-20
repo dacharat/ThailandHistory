@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".PeriodActivity" />
-        <activity android:name=".SukhothaiKingActivity"></activity>
+        <activity android:name=".SukhothaiKingActivity" />
+        <activity android:name=".KingInfoActivity"></activity>
     </application>
 
 </manifest>
