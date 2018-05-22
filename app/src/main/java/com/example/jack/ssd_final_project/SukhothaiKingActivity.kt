@@ -22,6 +22,7 @@ class SukhothaiKingActivity : AppCompatActivity(), KingView {
 
         kingRepo = MockKingdomRepository()
         presenter = KingPresenter(this, kingRepo)
+        System.out.print("I am starting")
         presenter.start()
     }
 

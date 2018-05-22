@@ -1,7 +1,10 @@
 package com.example.jack.ssd_final_project.models
 
 import android.os.AsyncTask
+import com.beust.klaxon.JsonReader
+import com.beust.klaxon.Klaxon
 import org.json.JSONObject
+import java.io.StringReader
 import java.net.URL
 
 class MockKingdomRepository: KingdomRepository() {
@@ -26,12 +29,26 @@ class MockKingdomRepository: KingdomRepository() {
             super.onPostExecute(result)
 
             if(result != null) {
-                val obj = JSONObject(result)
 
-                for(key in obj.keys()) {
-                    val expair = obj.getJSONObject(key)
-                    kingList.add(Kingdom(expair.getString("image"),expair.getString("name"), expair.getString("reign"), expair.getString("doing")))
+                val klaxon = Klaxon()
+
+                JsonReader(StringReader(result)).use { reader ->
+                    reader.beginArray {
+                        while (reader.hasNext()) {
+                            klaxon.parse<Kingdom>(reader)?.let {
+                                kingList.add(it)
+
+                            }
+                        }
+                    }
                 }
+
+//                val obj = JSONObject(result)
+//
+//                for(key in obj.keys()) {
+//                    val expair = obj.getJSONObject(key)
+//                    kingList.add(Kingdom(expair.getString("image"),expair.getString("name"), expair.getString("reign"), expair.getString("doing")))
+//                }
             }
             setChanged()
             notifyObservers()
