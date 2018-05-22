@@ -9,6 +9,7 @@ import java.net.URL
 
 class MockKingdomRepository(val kingdomPeriod:Int): KingdomRepository() {
 
+    private val thJson: String = "https://raw.githubusercontent.com/dacharat/ThailandHistory/master/assets/ThaiHistory.json"
     private val sktJson: String = "https://raw.githubusercontent.com/dacharat/ThailandHistory/master/assets/SukhothaiKingdom.json"
     private val aydJSON: String = "https://raw.githubusercontent.com/dacharat/ThailandHistory/master/assets/AyutthayaKingdom.json"
     private val tbrJson: String = "https://raw.githubusercontent.com/dacharat/ThailandHistory/master/assets/ThonburiKingdom.json"
@@ -19,6 +20,7 @@ class MockKingdomRepository(val kingdomPeriod:Int): KingdomRepository() {
 
     init {
         when(kingdomPeriod) {
+            0-> jsonUrl = thJson
             1-> jsonUrl = sktJson
             2-> jsonUrl = aydJSON
             3-> jsonUrl = tbrJson
