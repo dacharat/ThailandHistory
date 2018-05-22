@@ -21,7 +21,8 @@
     <TextView
         android:id="@+id/kingReign"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/kingDoing"

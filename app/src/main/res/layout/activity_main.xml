@@ -4,21 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:weightSum="2">
+
+    <ListView
+        android:id="@+id/historyList"
+        style="@style/Widget.AppCompat.Light.ListView.DropDown"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"/>
 
     <Button
         android:id="@+id/button"
-        style="@android:style/Widget.Material.Light.Button.Toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_light"
         android:onClick="changeToPeriodPage"
         android:text="Go to Thailand's King history" />
-
-    <ListView
-        android:id="@+id/historyList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 
 </LinearLayout>
