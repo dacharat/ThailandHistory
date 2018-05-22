@@ -21,4 +21,20 @@ class PeriodActivity : AppCompatActivity() {
         var intent = Intent(this, SukhothaiKingActivity::class.java)
         startActivity(intent)
     }
+
+    fun onAyutthayaButtonClicked(view: View){
+        var intent = Intent(this, AyutthayaKingActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun onThonburiButtonClicked(view: View){
+        var intent = Intent(this, ThonburiKingActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun onRattanakosinButtonClicked(view: View){
+        var intent = Intent(this, RattanakosinKingActivity::class.java)
+        startActivity(intent)
+    }
+
 }

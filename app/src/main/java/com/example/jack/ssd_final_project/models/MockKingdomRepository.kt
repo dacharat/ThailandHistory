@@ -7,9 +7,27 @@ import org.json.JSONObject
 import java.io.StringReader
 import java.net.URL
 
-class MockKingdomRepository: KingdomRepository() {
+class MockKingdomRepository(val kingdomPeriod:Int): KingdomRepository() {
+
+    private val sktJson: String = "https://raw.githubusercontent.com/dacharat/ThailandHistory/master/assets/SukhothaiKingdom.json"
+    private val aydJSON: String = "https://raw.githubusercontent.com/dacharat/ThailandHistory/master/assets/AyutthayaKingdom.json"
+    private val tbrJson: String = "https://raw.githubusercontent.com/dacharat/ThailandHistory/master/assets/ThonburiKingdom.json"
+    private val rtsJson: String = "https://raw.githubusercontent.com/dacharat/ThailandHistory/master/assets/RattanakosinKingdom.json"
 
     private var kingList = ArrayList<Kingdom>()
+    lateinit var jsonUrl: String
+
+    init {
+        when(kingdomPeriod) {
+            1-> jsonUrl = sktJson
+            2-> jsonUrl = aydJSON
+            3-> jsonUrl = tbrJson
+            4-> jsonUrl = rtsJson
+            else -> {
+//                jsonUrl = ""
+            }
+        }
+    }
 
     override fun getKingList(): ArrayList<Kingdom> {
         return kingList
@@ -22,7 +40,7 @@ class MockKingdomRepository: KingdomRepository() {
 
     private inner class SukhothaiKingLoaderTask : AsyncTask<String, Unit, String>() {
         override fun doInBackground(vararg params: String?): String {
-            return URL("https://raw.githubusercontent.com/dacharat/ThailandHistory/master/assets/SukhothaiKingdom.json").readText()
+            return URL(jsonUrl).readText()
         }
 
         override fun onPostExecute(result: String?) {
@@ -42,13 +60,6 @@ class MockKingdomRepository: KingdomRepository() {
                         }
                     }
                 }
-
-//                val obj = JSONObject(result)
-//
-//                for(key in obj.keys()) {
-//                    val expair = obj.getJSONObject(key)
-//                    kingList.add(Kingdom(expair.getString("image"),expair.getString("name"), expair.getString("reign"), expair.getString("doing")))
-//                }
             }
             setChanged()
             notifyObservers()

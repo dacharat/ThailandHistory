@@ -10,7 +10,7 @@ import com.example.jack.ssd_final_project.presenter.KingPresenter
 import com.example.jack.ssd_final_project.presenter.KingView
 import kotlinx.android.synthetic.main.activity_sukhothai_king.*
 
-class SukhothaiKingActivity : AppCompatActivity(), KingView {
+class AyutthayaKingActivity : AppCompatActivity(), KingView {
 
     private lateinit var kingRepo: KingdomRepository
     private lateinit var presenter: KingPresenter
@@ -18,11 +18,10 @@ class SukhothaiKingActivity : AppCompatActivity(), KingView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sukhothai_king)
+        setContentView(R.layout.activity_ayutthaya_king)
 
-        kingRepo = MockKingdomRepository(1)
+        kingRepo = MockKingdomRepository(2)
         presenter = KingPresenter(this, kingRepo)
-        System.out.print("I am starting")
         presenter.start()
     }
 
@@ -30,5 +29,5 @@ class SukhothaiKingActivity : AppCompatActivity(), KingView {
         adapter = KingListAdapter(this, kings)
         kingList.adapter = adapter
     }
-
 }
+

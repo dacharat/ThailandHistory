@@ -17,7 +17,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.net.URL
 
-class SukhothaiKingListAdapter(val context: Context, val kingList: ArrayList<Kingdom>): BaseAdapter(), ListAdapter {
+class KingListAdapter(val context: Context, val kingList: ArrayList<Kingdom>): BaseAdapter(), ListAdapter {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var view = convertView
         if(view == null) {
