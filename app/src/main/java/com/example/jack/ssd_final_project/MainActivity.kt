@@ -11,7 +11,7 @@ import com.example.jack.ssd_final_project.models.KingdomRepository
 import com.example.jack.ssd_final_project.models.MockKingdomRepository
 import com.example.jack.ssd_final_project.presenter.KingPresenter
 import com.example.jack.ssd_final_project.presenter.KingView
-import kotlinx.android.synthetic.main.activity_sukhothai_king.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), KingView {
 
@@ -38,6 +38,6 @@ class MainActivity : AppCompatActivity(), KingView {
 
     override fun setKingList(kings: ArrayList<Kingdom>) {
         adapter = KingListAdapter(this, kings)
-        kingList.adapter = adapter
+        historyList.adapter = adapter
     }
 }

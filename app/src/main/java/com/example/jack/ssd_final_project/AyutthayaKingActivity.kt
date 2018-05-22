@@ -8,7 +8,7 @@ import com.example.jack.ssd_final_project.models.KingdomRepository
 import com.example.jack.ssd_final_project.models.MockKingdomRepository
 import com.example.jack.ssd_final_project.presenter.KingPresenter
 import com.example.jack.ssd_final_project.presenter.KingView
-import kotlinx.android.synthetic.main.activity_sukhothai_king.*
+import kotlinx.android.synthetic.main.activity_ayutthaya_king.*
 
 class AyutthayaKingActivity : AppCompatActivity(), KingView {
 
